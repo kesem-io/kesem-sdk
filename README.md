@@ -210,10 +210,10 @@ This function returns JSON with all user wallets.
 </dl>
 
 ### Example:
-'''
+```
 [ { coinDetails: { coinCode: 1, shortName: 'BTC', title: 'BitCoin' }, 
       confirmedBalance: 0, unconfirmedBalance: 0 } ]
-'''
+```
 
 ## GetSupportedWalletsTypes()
 Returns a JSON with a list of supported wallets the system can create for user. For example BTC, ETC, XTN, etc..
@@ -226,11 +226,11 @@ Returns a JSON with a list of supported wallets the system can create for user. 
 </dl>
 
 ### Example:
-'''
+```
 [ { coinCode: 0, shortName: 'XTN', title: 'BitCoinTest' },
   { coinCode: 1, shortName: 'BTC', title: 'BitCoin' },
   { coinCode: 2, shortName: 'ETH', title: 'Ethereum' } ]
-'''
+```
 
 ## ChallengeSms(smscode)
 This function checks that SMS code is correct by connection the backend server. It is used as a part of the user security challenge when sending funds if the sum of transaction is big and also as part of wallet restoration in case wallet data was corrupted.
@@ -317,7 +317,7 @@ Returns a list of all user transactions for current wallet.
 </dl>
 
 ### Example:
-'''
+```
 [ { timestamp: 1549287849,
                      remark: '',
                      confirmInBlock: 1455569,
@@ -326,4 +326,4 @@ Returns a list of all user transactions for current wallet.
                      amountInCryptoCurrency: 0.11907588,
                      amountInDollars: 0 } ]
 
-'''
+```
