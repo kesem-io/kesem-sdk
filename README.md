@@ -7,19 +7,10 @@ The purpose of this SDK is to provide a rapid solution for developers looking to
 # Starting app
 ## UnlockKesemData()
 Unlock Kesem backend db.
-Returns:
-### error
-```Error / exception
-```
-### result[0]
-```
-Not used.
-```
-
+### Returns:
 <dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+  <dt>error</dt>
+  <dd>Error / exception.</dd>
+  <dt>result[0]</dt>
+  <dd>Not used.</dd>
 </dl>
