@@ -27,4 +27,15 @@ Perform security check of the application environment. Check for malwares, rooti
   <dd>Not used.</dd>
  </dl>
 
+# Register app
+## PostRegistrationRequest(phone, email =””)
+Creates a record for user on Kesem server. Kesem will send back to user SMS code.
+### Returns:
+<dl>
+  <dt>error</dt>
+  <dd>Error / exception</dd>
+  <dt>result[0]</dt>
+  <dd>"ok" for success.</dd>
+  <dd>"error" to indicate error. Result[1] will have the error. In case of "Security violation" redirect the use ro security error screen and exit application afterwards.</dd>
+</dl>
 
