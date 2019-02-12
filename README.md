@@ -1,11 +1,11 @@
 # Kesem.io SDK - Technical Documentation
 
-The purpose of this SDK is to provide a rapid solution for developers looking to develop custom cryptocurrency wallets and/or dapps.
+The purpose of this SDK is to provide a rapid solution for developers looking to develop custom cryptocurrency wallets and/or dApps.
 
-*In Buidl we trust*
+<center><strong>In Buidl we trust</strong></center>
 
 # Starting app
-## UnlockKesemData()
+## UnlockKesemData() API Call
 Unlock Kesem backend db.
 ### Returns:
 <dl>
@@ -15,8 +15,8 @@ Unlock Kesem backend db.
   <dd>Not used.</dd>
 </dl>
 
-## SecurityCheck()
-Perform security check of the application environment. Check for malwares, rooting, etc… This should be called after UnlockKesemData().
+## SecurityCheck()  API Call
+Perform security check of the application environment. Check for malwares, rooting, etc… This API call should be called after UnlockKesemData().
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -28,19 +28,19 @@ Perform security check of the application environment. Check for malwares, rooti
  </dl>
 
 # Register app
-## PostRegistrationRequest(phone, email =””)
-Creates a record for user on Kesem server. Kesem will send back to user SMS code.
+## PostRegistrationRequest(phone, email = "") API Call
+Creates a record for user on Kesem server. Kesem will send back to user SMS code by phone.
 ### Returns:
 <dl>
   <dt>error</dt>
   <dd>Error / exception</dd>
   <dt>result[0]</dt>
   <dd>"ok" for success.</dd>
-  <dd>"error" to indicate error. Result[1] will have the error. In case of "Security violation" redirect the user to security error screen and exit application afterwards.</dd>
+  <dd>"error" to indicate error. Result[1] will have the error. In case of "Security violation", default Kesem wallet redirects user to security error screen and exit application afterwards.</dd>
 </dl>
 
-## ValidateSms(smscode)
-This function checks that SMS code is correct by connecting the backend server. It is used during user registration process.
+## ValidateSms(smscode) API Call
+This function checks that SMS code is correct by verifing it with backend server. It is used during user registration process.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -52,8 +52,8 @@ This function checks that SMS code is correct by connecting the backend server. 
 
 # Information retreaval
 
-## GetUuidHash()
-This function returns user id in hash format to be used by external systems. For example as part of utm tokens or for tracking with external analytics systems.
+## GetUuidHash() API Call
+This function returns user-id in hash format to be used by external systems. For example as part of utm tokens or for tracking with external analytics systems.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -62,22 +62,22 @@ This function returns user id in hash format to be used by external systems. For
   <dd>User hash.</dd>
 </dl>
 
-## GetEnvironment()
+## GetEnvironment() API Call
 Kesem is using multiple backend systems for testing and for production. It can be production, or development.
 ### Returns:
 <dl>
   <dt>error</dt>
   <dd>Error / exception.</dd>
   <dt>result[0]</dt>
-  <dd>"production"/"development" value</dd>
+  <dd>*production* or *development* value</dd>
 </dl>
 
-## IsRegistered()
+## IsRegistered() API Call
 This function return boolean value that indicated if user is registered, meaning:
-User accepted terms of service.
-User provided his phone number.
-User send correct SMS code.
-Backend performed finished init of the database.
+⋅⋅* User accepted terms of service.
+⋅⋅* User provided his phone number.
+⋅⋅* User send correct SMS code.
+⋅⋅* API backend finished init of the transaction database on the mobile phone.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -88,8 +88,8 @@ Backend performed finished init of the database.
 
 # Login and basic security
 
-## CanUseFingerprint()
-Check if the device has support for fingerprints.
+## CanUseFingerprint() API Call
+Check if the mobile device has fingerprint hardware support and it can be used.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -98,8 +98,8 @@ Check if the device has support for fingerprints.
   <dd><strong>True</strong> / <strong>False</strong> to indicate that fingerprint can be used.</dd>
 </dl>
 
-## IsFingerprintSet()
-Check if application password is encoded with fingerprint.
+## IsFingerprintSet() API Call
+Check if application password is encrypted with fingerprint.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -108,18 +108,18 @@ Check if application password is encoded with fingerprint.
   <dd><strong>True</strong> / <strong>False</strong> to indicate that password is encrypted with fingerprint code.</dd>
 </dl>
 
-## DecryptWithFingerprint()
-This function will show a popup asking him to provide fingerprint. It returns user password.
+## DecryptWithFingerprint() API Call
+This function shows a popup screen asking user to provide fingerprint. This API call returns user password.
 ### Returns:
 <dl>
   <dt>error</dt>
   <dd>Error / exception.</dd>
   <dt>result[0]</dt>
-  <dd>Return application user password in clear text.</dd>
+  <dd>Return application' user password in clear text.</dd>
 </dl>
 
-## CheckPassword(password)
-This function checks if user password is correct it the system can show to user wallet balance.
+## CheckPassword(password) API Call
+This function checks if user password is correct. Default Kesem Wallet ask performs user password check before showing user wallet balance.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -128,7 +128,7 @@ This function checks if user password is correct it the system can show to user 
   <dd>Not used.</dd>
 </dl>
 
-## ReplacePassword(oldpassword, newpassword)
+## ReplacePassword(oldpassword, newpassword) API Call
 This functions is in charge to change user password.
 ### Returns:
 <dl>
@@ -141,8 +141,8 @@ This functions is in charge to change user password.
 
 # Advanced Security
 
-## RequestLocationPermission()
-Shows to user system popup to give application access to location permission if it is not already given. This is an optional step and it is advised only if user has meaningful amount of money on his account.
+## RequestLocationPermission() API Call
+This API call shows to user system popup to give application access to location permission if it is not already given. This is an optional step. It is recommended to enable lcoation tracking only if user has meaningful amount of crypto currencies on his account.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -151,8 +151,8 @@ Shows to user system popup to give application access to location permission if 
   <dd>Not used.</dd>
 </dl>
 
-## RemoveBackupSeed()
-This function removes second backup key seed for the db. It is done to improve security. In kesem app, user needs to confirm seed delation.
+## RemoveBackupSeed() API Call
+This function removes second backup key seed for the database. It is done to improve security. In default Kesem app, user needs to confirm seed delation.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -161,8 +161,8 @@ This function removes second backup key seed for the db. It is done to improve s
   <dd>Not used.</dd>
 </dl>
 
-## GetBackupSeed()
-Returns backup seed in hex format to be backuped.
+## GetBackupSeed() API Call
+Returns backup seed in hex format to the user to be used to be backuped.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -171,8 +171,8 @@ Returns backup seed in hex format to be backuped.
   <dd>Backup seed.</dd>
 </dl>
 
-## IsBackupSeedSaved()
-This function check if database has no backup seed - meaning it was already exported.
+## IsBackupSeedSaved() API Call
+This function check if database has no backup seed - meaning it was already backuped.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -184,12 +184,12 @@ This function check if database has no backup seed - meaning it was already expo
 
 # Wallet related API commands
 
-## SyncTransactions()
-Check Kesem server for new transactions for all supported coins at once.
+## SyncTransactions() API Call
+This API call check Kesem server for all new user transactions for all supported coins at once.
 
 ### Returns: nothing.
 
-## CreateNewWallet(coinShortName, password)
+## CreateNewWallet(coinShortName, password) API Call
 Create wallet for user. User can create just one wallet for specific coin. Password is required only for first wallet command.
 ### Returns:
 <dl>
@@ -199,8 +199,8 @@ Create wallet for user. User can create just one wallet for specific coin. Passw
   <dd><strong>True</strong> / <strong>False</strong> to indicate that wallet was created.</dd>
 </dl>
 
-## GetUserWalletsData()
-This function returns JSON with all user wallets.
+## GetUserWalletsData() API Call
+This function returns JSON with all user wallets information.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -215,14 +215,14 @@ This function returns JSON with all user wallets.
       confirmedBalance: 0, unconfirmedBalance: 0 } ]
 ```
 
-## GetSupportedWalletsTypes()
+## GetSupportedWalletsTypes() API Call
 Returns a JSON with a list of supported wallets the system can create for user. For example BTC, ETC, XTN, etc..
 ### Returns:
 <dl>
   <dt>error</dt>
   <dd>Error / exception.</dd>
   <dt>result[0]</dt>
-  <dt>A list of supported wallets info in JSON format.</dt>
+  <dt>A list of supported wallets in JSON format.</dt>
 </dl>
 
 ### Example:
@@ -232,8 +232,8 @@ Returns a JSON with a list of supported wallets the system can create for user. 
   { coinCode: 2, shortName: 'ETH', title: 'Ethereum' } ]
 ```
 
-## ChallengeSms(smscode)
-This function checks that SMS code is correct by connection the backend server. It is used as a part of the user security challenge when sending funds if the sum of transaction is big and also as part of wallet restoration in case wallet data was corrupted.
+## ChallengeSms(smscode) API Call
+This function checks that SMS code is correct by connection the backend server. It is used as a part of the user security challenge validation when user is sending funds out. For example if the sum of transaction is big.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -245,8 +245,8 @@ This function checks that SMS code is correct by connection the backend server. 
 
 # Wallet Object Operations
 
-## OpenWallet(coinShortName)
-Perform internal open of the wallet. After opening the wallet, the following API calls can be used: GetAddress(), IsValidAddress(), RefreshAddress(), GetBalance(), SendCoins(), GetTransactiosData(). No need to run OpenWallet several time, only when you change active wallet.
+## OpenWallet(coinShortName) API Call
+Perform internal operation to open specific wallet. After opening the wallet, the following API calls can be used: GetAddress(), IsValidAddress(), RefreshAddress(), GetBalance(), SendCoins(), GetTransactiosData(). No need to run OpenWallet several time, only when you change active wallet.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -255,8 +255,8 @@ Perform internal open of the wallet. After opening the wallet, the following API
   <dd>Not used.</dd>
 </dl>
 
-## GetAddress()
-Get current wallet address of the wallet previously opened with OpenWallet()
+## GetAddress() API Call
+Get current address of the wallet previously opened with OpenWallet()
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -265,8 +265,8 @@ Get current wallet address of the wallet previously opened with OpenWallet()
   <dd>Wallet address.</dd>
 </dl>
 
-## IsValidAddress()
-Check that the wallet address has correct formation. It is used to perfrom sanity check when sending out funds. It is required that wallet was opened with OpenWallet().
+## IsValidAddress() API Call
+This API all checks that the arbitrary wallet address has correct formation. It is used as part of sanity check when sending out funds. Wallet should be opened state when calling this API call.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -275,8 +275,8 @@ Check that the wallet address has correct formation. It is used to perfrom sanit
   <dd><strong>True</strong> / <strong>False</strong> to indicate that address has correct format.</dd>
 </dl>
 
-## RefreshAddress()
-Refreshes wallet address with Kesem server and returns a new one. It is not supported for all currencies.
+## RefreshAddress() API Call
+Refreshes wallet address with Kesem server and returns a new address. Wallet should be in opened state when calling this API call.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -285,8 +285,8 @@ Refreshes wallet address with Kesem server and returns a new one. It is not supp
   <dd>New wallet address.</dd>
 </dl>
 
-## GetBalance()
-Return balance of the current wallet opened with OpenWallet() API call.
+## GetBalance() API Call
+Returns balance of the current wallet opened with OpenWallet() API call.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -298,15 +298,15 @@ Return balance of the current wallet opened with OpenWallet() API call.
 </dl>
 
 
-## SendCoins(amount, address, fee, password)
-Creates a transaction and sends it to Kesem server.
+## SendCoins(amount, address, fee, password) API Call
+Creates a transaction and sends it to Kesem server. Wallet should be in opened state when calling this API call.
 ### Parameters:
-Amount - sum of coins to send.
-Address - destination address to send
-Fee - mining fees to pay - X coins for 1000 bytes of transactions.
-Password - user wallet password.
+⋅⋅* Amount - sum of coins to send.
+⋅⋅* Address - destination address to send
+⋅⋅* Fee - mining fees to pay - X coins for 1000 bytes of transactions.
+⋅⋅* Password - user wallet password.
 
-## GetTransactionsData()
+## GetTransactionsData() API Call
 Returns a list of all user transactions for current wallet.
 ### Returns:
 <dl>
