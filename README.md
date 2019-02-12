@@ -74,10 +74,10 @@ Kesem is using multiple backend systems for testing and for production. It can b
 
 ## IsRegistered() API Call
 This function return boolean value that indicated if user is registered, meaning:
-⋅⋅* User accepted terms of service.
-⋅⋅* User provided his phone number.
-⋅⋅* User send correct SMS code.
-⋅⋅* API backend finished init of the transaction database on the mobile phone.
+* User accepted terms of service.
+* User provided his phone number.
+* User send correct SMS code.
+* API backend finished init of the transaction database on the mobile phone.
 ### Returns:
 <dl>
   <dt>error</dt>
@@ -301,10 +301,10 @@ Returns balance of the current wallet opened with OpenWallet() API call.
 ## SendCoins(amount, address, fee, password) API Call
 Creates a transaction and sends it to Kesem server. Wallet should be in opened state when calling this API call.
 ### Parameters:
-⋅⋅* Amount - sum of coins to send.
-⋅⋅* Address - destination address to send
-⋅⋅* Fee - mining fees to pay - X coins for 1000 bytes of transactions.
-⋅⋅* Password - user wallet password.
+* Amount - sum of coins to send.
+* Address - destination address to send
+* Fee - mining fees to pay - X coins for 1000 bytes of transactions.
+* Password - user wallet password.
 
 ## GetTransactionsData() API Call
 Returns a list of all user transactions for current wallet.
