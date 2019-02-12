@@ -2,7 +2,7 @@
 
 The purpose of this SDK is to provide a rapid solution for developers looking to develop custom cryptocurrency wallets and/or dApps.
 
-<center><strong>In Buidl we trust</strong></center>
+<q><strong>In Buidl we trust</strong></q>
 
 # Starting app
 ## UnlockKesemData() API Call
@@ -69,11 +69,11 @@ Kesem is using multiple backend systems for testing and for production. It can b
   <dt>error</dt>
   <dd>Error / exception.</dd>
   <dt>result[0]</dt>
-  <dd>*production* or *development* value</dd>
+  <dd><strong>production</strong> or <strong>development</strong> value</dd>
 </dl>
 
 ## IsRegistered() API Call
-This function return boolean value that indicated if user is registered, meaning:
+This function return boolean value that indicate that user is registered, meaning:
 * User accepted terms of service.
 * User provided his phone number.
 * User send correct SMS code.
