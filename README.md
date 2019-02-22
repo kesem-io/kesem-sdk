@@ -1,6 +1,7 @@
 # Kesem.io SDK - Technical Documentation
 
 The purpose of this SDK is to provide a rapid solution for developers looking to develop custom cryptocurrency wallets and/or dApps.
+Kesem is a secure mulitisig wallet with advanced transaction risk assessment.
 
 <q><strong>In Buidl we trust</strong></q>
 
